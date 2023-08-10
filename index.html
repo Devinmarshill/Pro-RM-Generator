@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>README Generator</title>
+</head>
+<body>
+    <h1>README Generator</h1>
+    <form id="readme-form">
+        <label for="project-title">Project Title;</label>
+        <input type="text" id="project-title" required>
+        <!-- put in more input fields -->
+
+    <label for="license">Select a License</label>
+    <select id="license">
+        <option value="MIT">MIT</option>
+        <option value="Apache">Apache</option>
+        <!-- add other license options -->
+    </select>
+
+    <button type="submit">Generate README</button>
+    </form>
+
+    <div id="readme-output">
+
+
+    </div>
+
+    <script src="assets/js/script.js"></script>    
+</body>
+</html>
