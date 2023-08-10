@@ -8,16 +8,10 @@ body {
    
 }
 
-#project-title {
+#project-title, #project-purpose, #project-motivation, #project-knowledge, #project-problem, #project-differnce, #license {
     display: flex;
     margin: 20px;
-}
-
-
-#license {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
+    width: 25%;
 }
 
 button:hover {
