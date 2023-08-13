@@ -1,12 +1,14 @@
+const fs = require('fs');
+const markdownContent=''
 const inquirer = require('inquirer');
 
 inquirer
     .prompt(
         [
         {
-            type: 'input',
-            message: 'What was your motivation?',
-            name: 'motivation'
+        type: 'input',
+        message: 'What was your motivation?',
+        name: 'motivation'
 
     },
     {
@@ -27,7 +29,13 @@ inquirer
     {
         type: 'input',
         message: 'What makes your project stand out?',
-        name: 'stand out'
+        name: 'standOut'
+    },
+    {
+        type:'rawlsit',
+        message: 'Choose a License',
+        name: 'license',
+        choices:['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License']
     }
 ])
 
@@ -38,5 +46,15 @@ inquirer
     console.log(response.problem);
     console.log(response.learn);
     console.log(response.standOut);
+    console.log(response.license);
 
 });
+
+fs.writeFile('README.md', markdownContent, err =>{
+    if (err){
+        console.log("error creating README", err);
+    } else { 
+        console.log('README has been generated successfully!');
+    }
+    }
+)
