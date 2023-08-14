@@ -1,0 +1,15 @@
+{
+  "name": "pro-rm-generator",
+  "version": "1.0.0",
+  "description": "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
