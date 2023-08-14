@@ -102,7 +102,7 @@ inquirer
         name: 'standOut'
     },
     {
-        type:'rawlsit',
+        type:'rawlist',
         message: 'Choose a License',
         name: 'license',
         choices:['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License']
