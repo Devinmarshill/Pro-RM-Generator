@@ -1,5 +1,5 @@
 const fs = require('fs');
-const markdownContent = `# <Your-Project-Title>
+const markdownContent =(response)=> `# ${response.title}
 
 ## Description
 
@@ -70,6 +70,11 @@ const inquirer = require('inquirer');
 inquirer
     .prompt(
         [
+            {
+                type: 'input',
+                message:'what is your project title',
+                name: 'title'
+            },
         {
         type: 'input',
         message: 'What was your motivation?',
@@ -114,7 +119,7 @@ inquirer
     console.log(response.license);
 
 
-    fs.writeFile('README.md', markdownContent, err =>{
+    fs.writeFile('README.md', markdownContent(response), err =>{
         if (err){
             console.log("error creating README", err);
         } else { 
