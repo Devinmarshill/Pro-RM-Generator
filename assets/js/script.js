@@ -113,13 +113,14 @@ inquirer
     console.log(response.standOut);
     console.log(response.license);
 
+
+    fs.writeFile('README.md', markdownContent, err =>{
+        if (err){
+            console.log("error creating README", err);
+        } else { 
+            console.log('README has been generated successfully!');
+        }
+        }
+    );
 });
 
-fs.writeFile('README.md', markdownContent, err =>{
-    if (err){
-        console.log("error creating README", err);
-    } else { 
-        console.log('README has been generated successfully!');
-    }
-    }
-)
