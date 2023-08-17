@@ -27,8 +27,9 @@ TA, Office Hours, Teacher
 
 ## License
 
-https://github.com/Devinmarshill/Pro-RM-Generator/blob/2c0f1cb4405e49bdfe835c6b11d9cc42ab234258/LICENSE
+License: MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+
 
 ![Alt text](image.png)

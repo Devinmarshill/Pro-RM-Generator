@@ -8,7 +8,11 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+    if(license==="MIT"){return 'License: MIT[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'}
+    else if(license==="No License") {return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'}
+}
+
 
 const fs = require('fs');
 const markdownContent = (response) => `# ${response.title}
@@ -36,13 +40,13 @@ ${response.installation}
 
     
 
-## Credits
+## Contributing
 
 ${response.contributing}
 
 ## License
 
-${renderLicenseSection(response)}
+${renderLicenseSection(response.license)}
 
 
 ---
@@ -69,9 +73,11 @@ ${response.test}
 
 ## Questions 
 <ul>
-  <li> <a href="https://github.com/${response.username}">Github Profile</li>
+  <li> <a href="https://github.com/${response.github}">Github Profile</li>
   <li> <a href="mailto:${response.email}">Email Me</li>
 </ul>
+
+
 
 `
 
@@ -115,13 +121,23 @@ inquirer
                 type: 'rawlist',
                 message: 'Choose a License',
                 name: 'license',
-                choices: ['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License', 'MIT']
+                choices: ['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License', 'MIT', 'No License']
             },
             {
                 type: 'input',
                 message: 'Explain how the user can test the Project you have created',
                 name: 'test'
             },
+            {
+              type: 'input',
+              message: 'What is your github username',
+              name: 'github'
+          },
+          {
+            type: 'input',
+            message: 'What is your Email',
+            name: 'email'
+        }
         ])
 
     .then(response => {
@@ -133,6 +149,8 @@ inquirer
         console.log(response.contributing);
         console.log(response.license);
         console.log(response.test);
+        console.log(response.github)
+        console.log(response.email)
 
 
         fs.writeFile('README.md', markdownContent(response), err => {
