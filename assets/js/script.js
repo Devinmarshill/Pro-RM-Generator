@@ -1,47 +1,36 @@
 const fs = require('fs');
-const markdownContent =(response)=> `# ${response.title}
+const markdownContent = (response) => `# ${response.title}
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+${response.description}
 
 ## Table of Contents (Optional)
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+${response.contents}
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
+- [Credits]($credits)
 - [License](#license)
+- [Badges](#badges)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Tests](#tests)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
-## Usage
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an assets folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README.
+${response.installation}
 
     
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third - party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+${response.contributing}
 
 ## License
 
-The last section of a high - quality README file is the license.This lets other developers know what they can and cannot do with your project.If you need help choosing a license, refer to[https://choosealicense.com/](https://choosealicense.com/).
+${response.license}
+[https://choosealicense.com/](https://choosealicense.com/).
 
 ---
 
@@ -63,8 +52,10 @@ If you created an application or package and would like other developers to cont
 
 ## Tests
 
-Go the extra mile and write tests for your application.Then provide examples on how to run them here.
-A GitHub profile with consistently high - quality README files is sure to help you`
+${response.tests}
+
+${response.questions}`
+
 const inquirer = require('inquirer');
 
 inquirer
@@ -72,60 +63,72 @@ inquirer
         [
             {
                 type: 'input',
-                message:'what is your project title',
+                message: 'What is your Project Title',
                 name: 'title'
             },
-        {
-        type: 'input',
-        message: 'What was your motivation?',
-        name: 'motivation'
+            {
+                type: 'input',
+                message: 'Give a brief description of your Project',
+                name: 'description'
 
-    },
-    {
-        type: 'input',
-        message: 'Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")',
-        name: 'why'
-    },
-    {
-        type: 'input',
-        message: 'What problem does it solve?',
-        name: 'problem'
-    },
-    {
-        type: 'input',
-        message: 'What did you learn?',
-        name: 'learn'
-    },
-    {
-        type: 'input',
-        message: 'What makes your project stand out?',
-        name: 'standOut'
-    },
-    {
-        type:'rawlist',
-        message: 'Choose a License',
-        name: 'license',
-        choices:['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License']
-    }
-])
+            },
+            {
+                type: 'input',
+                message: 'Table of Contents',
+                name: 'contents'
+            },
+            {
+                type: 'input',
+                message: 'Explain how a user can install your Project',
+                name: 'installation'
+            },
+            {
+                type: 'input',
+                message: 'Explain how a user can use your Project',
+                name: 'usage'
+            },
+            {
+                type: 'input',
+                message: 'name any sources you used to build this Project',
+                name: 'contributing'
+            },
+            {
+                type: 'rawlist',
+                message: 'Choose a License',
+                name: 'license',
+                choices: ['Apache', 'boost', 'BSD', 'BSD-3Clause License', 'BSD2-Clause License', 'MIT']
+            },
+            {
+                type: 'input',
+                message: 'Write tests that your user can do to understand the Project you have created',
+                name: 'tests'
+            },
+            {
+                type: 'input',
+                message: 'Questions/Contact Me',
+                name: 'questions'
+            }
+        ])
 
-.then(response =>{
-    console.log(response);
-    console.log(response.motivation);
-    console.log(response.why);
-    console.log(response.problem);
-    console.log(response.learn);
-    console.log(response.standOut);
-    console.log(response.license);
+    .then(response => {
+        console.log(response);
+        console.log(response.description);
+        console.log(response.contents);
+        console.log(response.installation);
+        console.log(response.usage);
+        console.log(response.contributing);
+        console.log(response.license);
+        console.log(response.tests);
+        console.log(response.questions);
 
 
-    fs.writeFile('README.md', markdownContent(response), err =>{
-        if (err){
-            console.log("error creating README", err);
-        } else { 
-            console.log('README has been generated successfully!');
+        fs.writeFile('README.md', markdownContent(response), err => {
+            if (err) {
+                console.log("error creating README", err);
+            } else {
+                console.log('README has been generated successfully!');
+            }
         }
-        }
-    );
-});
+        );
+    });
 
