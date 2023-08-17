@@ -1,5 +1,19 @@
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {}
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {}
+
 const fs = require('fs');
 const markdownContent = (response) => `# ${response.title}
+
+${renderLicenseBadge(response)}
 
 ## Description
 
@@ -9,7 +23,7 @@ ${response.description}
 
 ${response.contents}
 
-- [Installation](#installation
+- [Installation](#installation)
 - [License](#license)
 - [Badges](#badges)
 - [Features](#features)
@@ -28,8 +42,8 @@ ${response.contributing}
 
 ## License
 
-${response.license}
-[https://choosealicense.com/](https://choosealicense.com/).
+${renderLicenseSection(response)}
+
 
 ---
 
@@ -53,7 +67,13 @@ If you created an application or package and would like other developers to cont
 
 ${response.test}
 
-${response.questions}`
+## Questions 
+<ul>
+  <li> <a href="https://github.com/${response.username}">Github Profile</li>
+  <li> <a href="mailto:${response.email}">Email Me</li>
+</ul>
+
+`
 
 const inquirer = require('inquirer');
 
@@ -102,11 +122,6 @@ inquirer
                 message: 'Explain how the user can test the Project you have created',
                 name: 'test'
             },
-            {
-                type: 'input',
-                message: 'Questions/Contact Me',
-                name: 'questions'
-            }
         ])
 
     .then(response => {
@@ -118,7 +133,6 @@ inquirer
         console.log(response.contributing);
         console.log(response.license);
         console.log(response.test);
-        console.log(response.questions);
 
 
         fs.writeFile('README.md', markdownContent(response), err => {
@@ -130,4 +144,6 @@ inquirer
         }
         );
     });
+
+
 
