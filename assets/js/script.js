@@ -52,7 +52,7 @@ If you created an application or package and would like other developers to cont
 
 ## Tests
 
-${response.tests}
+${response.test}
 
 ${response.questions}`
 
@@ -100,8 +100,8 @@ inquirer
             },
             {
                 type: 'input',
-                message: 'Write tests that your user can do to understand the Project you have created',
-                name: 'tests'
+                message: 'Explain how the user can test the Project you have created',
+                name: 'test'
             },
             {
                 type: 'input',
@@ -118,7 +118,7 @@ inquirer
         console.log(response.usage);
         console.log(response.contributing);
         console.log(response.license);
-        console.log(response.tests);
+        console.log(response.test);
         console.log(response.questions);
 
 
