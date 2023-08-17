@@ -1,31 +1,31 @@
-# 1
+# README Generator
 
 undefined
 
 ## Description
 
-1
+this project is to understand how to create files and use NodeJS
 
 ## Table of Contents (Optional)
 
-1
+
 
 - [Installation](#installation)
+- [Contributing](#contributing)
 - [License](#license)
 - [Badges](#badges)
 - [Features](#features)
-- [Contributing](#contributing)
 - [Tests](#tests)
 
 ## Installation
 
-1
+By viewing the github profile linked below.
 
     
 
-## Credits
+## Contributing
 
-1
+TA, Teacher, Office hours
 
 ## License
 
@@ -52,12 +52,12 @@ If you created an application or package and would like other developers to cont
 
 ## Tests
 
-1
+switch the questions to create different workflows
 
 ## Questions 
 <ul>
-  <li> <a href="https://github.com/2">Github Profile</li>
-  <li> <a href="mailto:1">Email Me</li>
+  <li> <a href="https://github.com/devinmarshill">Github Profile</li>
+  <li> <a href="mailto:devinhill2911@gmail.com">Email Me</li>
 </ul>
 
 

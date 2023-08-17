@@ -17,7 +17,7 @@ function renderLicenseSection(license) {
 const fs = require('fs');
 const markdownContent = (response) => `# ${response.title}
 
-${renderLicenseBadge(response)}
+${renderLicenseBadge(response.license)}
 
 ## Description
 
@@ -28,10 +28,10 @@ ${response.description}
 ${response.contents}
 
 - [Installation](#installation)
+- [Contributing](#contributing)
 - [License](#license)
 - [Badges](#badges)
 - [Features](#features)
-- [Contributing](#contributing)
 - [Tests](#tests)
 
 ## Installation
